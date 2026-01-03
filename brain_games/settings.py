@@ -1,0 +1,2 @@
+RIGHT_ANSWER_COUNTER = 3
+EXPRESSIONS = ['+', '*', '-']

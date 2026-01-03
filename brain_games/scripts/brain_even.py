@@ -1,53 +1,48 @@
-import random
-
-import prompt
-
 from brain_games.cli import welcome_user
+from brain_games.helpers.chat import (
+    ask_user_answer,
+    congratulation,
+    say_hello,
+    wrong_answer,
+)
+from brain_games.helpers.compare_results import is_right_answer
+from brain_games.helpers.select_number import set_number
+from brain_games.settings import RIGHT_ANSWER_COUNTER
 
 
-RIGHT_ANSWER_COUNTER = 3
-
-
-def set_number():
-    random_number = random.randint(1, 20)
-    return random_number
-
-
-def is_correct(number, user_answer):
-    correct_answer = 'yes' if number % 2 == 0 else 'no'
-    return user_answer == correct_answer
-
-
-def change_answer(user_answer):
-    if user_answer == 'yes':
-        return 'no'
-    else:
+def right_answer_even(number):
+    if number % 2 == 0:
         return 'yes'
+    else:
+        return 'no'
 
 
-def answers_counter(username):
+def ask_question_even():
+    number = set_number()
+    print(f'Question: {number}')
+    issue_answer = right_answer_even(number)
+    return issue_answer
+
+
+def run_even_game(username):
     counter = 0
     while counter < RIGHT_ANSWER_COUNTER:
-        number = set_number()
-        print(f'Question: {number}')
-        user_text = prompt.string('Your answer: ')
-        if is_correct(number, user_text):
-            print('Correct!')
+        issue_answer = ask_question_even()
+        user_answer = ask_user_answer()
+        if is_right_answer(issue_answer, user_answer):
+            counter += 1
         else:
-            print(f"'{user_text}' is wrong answer ;(. Correct answer was "
-                  f"'{change_answer(user_text)}'.")
-            print(f'Let,s try again, {username}')
+            wrong_answer(user_answer, issue_answer, username)
             break
-        counter += 1
     else:
-        print(f'Congratulations, {username}')
+        congratulation(username)
 
 
 def main():
-    print("Welcome to Brain Games!")
+    say_hello()
     username = welcome_user()
     print('Answer "yes" if the number is even, otherwise answer "no".')
-    answers_counter(username)
+    run_even_game(username)
 
 
 if __name__ == '__main__':
