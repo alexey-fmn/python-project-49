@@ -9,5 +9,9 @@
 
 [![Duplicated Lines (%)](https://sonarcloud.io/api/project_badges/measure?project=alexey-fmn_python-project-49&metric=duplicated_lines_density)](https://sonarcloud.io/summary/new_code?id=alexey-fmn_python-project-49)
 
-asciinema:
+# asciinema:
+## brain-even
 [![asciicast](https://asciinema.org/a/2y71ESme8TYMhSpIlTdqNHVmb.svg)](https://asciinema.org/a/2y71ESme8TYMhSpIlTdqNHVmb)
+
+## brain-calc
+[![asciicast](https://asciinema.org/a/2zX0T2UNrzZSzr0oQrhKikf90.svg)](https://asciinema.org/a/2zX0T2UNrzZSzr0oQrhKikf90)
