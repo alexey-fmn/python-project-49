@@ -16,4 +16,4 @@ def ask_user_answer():
 
 
 def congratulation(name):
-    print(f'Congratulations, {name}')
+    print(f'Congratulations, {name}!')
