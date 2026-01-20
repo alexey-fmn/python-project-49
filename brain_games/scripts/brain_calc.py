@@ -1,15 +1,10 @@
 import random
 
 from brain_games.cli import welcome_user
-from brain_games.helpers.chat import (
-    ask_user_answer,
-    congratulation,
-    say_hello,
-    wrong_answer,
-)
-from brain_games.helpers.compare_results import is_right_answer
+from brain_games.helpers.chat import say_hello
+from brain_games.helpers.run_game import run_game
 from brain_games.helpers.select_number import set_number
-from brain_games.settings import EXPRESSIONS, RIGHT_ANSWER_COUNTER
+from brain_games.settings import EXPRESSIONS
 
 
 def counted_result_calc(a, b, selected_expression):
@@ -39,25 +34,11 @@ def ask_question_calc():
     return expression[1]
 
 
-def run_calc_game(username):
-    counter = 0
-    while counter < RIGHT_ANSWER_COUNTER:
-        issue_answer = ask_question_calc()
-        user_answer = ask_user_answer()
-        if is_right_answer(issue_answer, user_answer):
-            counter += 1
-        else:
-            wrong_answer(user_answer, issue_answer, username)
-            break
-    else:
-        congratulation(username)
-
-
 def main():
     say_hello()
     username = welcome_user()
     print('What is the result of the expression?')
-    run_calc_game(username)
+    run_game(username, ask_question_calc)
 
 
 if __name__ == '__main__':
