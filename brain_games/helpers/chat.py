@@ -8,7 +8,7 @@ def say_hello():
 def wrong_answer(user_text, expression, name):
     print(f'\'{user_text}\' is wrong answer ;(. '
           f'Correct answer: \'{expression}\'.')
-    print(f'Let,s try again, {name}')
+    print(f'Let,s try again, {name}!')
 
 
 def ask_user_answer():
