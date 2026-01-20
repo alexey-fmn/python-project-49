@@ -2,7 +2,7 @@ import prompt
 
 
 def say_hello():
-    print("Welcome to Brain Games!")
+    print("Welcome to the Brain Games!")
 
 
 def wrong_answer(user_text, expression, name):

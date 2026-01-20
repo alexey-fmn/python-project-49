@@ -1,8 +1,9 @@
 from brain_games.cli import welcome_user
+from brain_games.helpers.chat import say_hello
 
 
 def main():
-    print("Welcome to Brain Games!")
+    say_hello()
     welcome_user()
 
 
